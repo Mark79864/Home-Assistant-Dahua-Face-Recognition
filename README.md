@@ -1,5 +1,7 @@
 # Dahua Face Recognition — Home Assistant Custom Integration
 
+[WARN: This code was 100% created by Claude.ai because I have little knowledge on writing code for a project like this. Use at your own risk]
+
 Subscribes to a Dahua NVR's video-analyse event stream (Dahua's "Video
 Analyse APIs" reference, §9.1 IVS events + §9.2.15/9.2.16 face events)
 and exposes them as Home Assistant sensors, one device per camera.

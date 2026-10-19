@@ -1,0 +1,94 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Dahua NVR",
+        "description": "Enter the connection details for your Dahua NVR or camera.",
+        "data": {
+          "host": "IP address",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password"
+        }
+      },
+      "cameras": {
+        "title": "Select cameras",
+        "description": "Choose which camera channels to track (up to 64 per NVR). Already-tracked cameras on this NVR: {already_configured}. Each selected camera becomes its own device; next you'll pick which features to enable for each one.",
+        "data": {
+          "cameras": "Cameras"
+        }
+      },
+      "features": {
+        "title": "Choose features",
+        "description": "Which features should be enabled for \"{camera_name}\" (channel {channel})? Each one adds its own entities to this camera's device.",
+        "data": {
+          "features": "Features"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid username or password.",
+      "cannot_connect": "Failed to connect to the device.",
+      "no_cameras_selected": "Select at least one camera.",
+      "too_many_cameras": "You can select at most 64 cameras per NVR.",
+      "no_features_selected": "Select at least one feature for this camera.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This device is already configured.",
+      "reconfigure_successful": "Camera and feature selection updated for this NVR."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Update tracked cameras",
+        "data": {
+          "cameras": "Cameras"
+        }
+      },
+      "features": {
+        "title": "Choose features",
+        "description": "Which features should be enabled for \"{camera_name}\" (channel {channel})? Each one adds its own entities to this camera's device.",
+        "data": {
+          "features": "Features"
+        }
+      }
+    },
+    "error": {
+      "no_cameras_selected": "Select at least one camera.",
+      "too_many_cameras": "You can select at most 64 cameras per NVR.",
+      "no_features_selected": "Select at least one feature for this camera."
+    }
+  },
+  "services": {
+    "play_audio_file": {
+      "name": "Play Audio File",
+      "description": "Play an audio file already stored on a Dahua device through its speaker. The underlying API has no per-channel targeting — the selected device just picks which NVR/camera connection is used.",
+      "fields": {
+        "path": {
+          "name": "Path",
+          "description": "Directory on the device containing the audio file."
+        },
+        "file_name": {
+          "name": "File name",
+          "description": "Name of the audio file to play (must already exist on the device)."
+        },
+        "play_times": {
+          "name": "Play times",
+          "description": "Number of times to play the file."
+        }
+      }
+    },
+    "set_custom_overlay": {
+      "name": "Set Custom Overlay",
+      "description": "Set up to 6 stacked lines of custom on-screen-display text on a specific camera. Fewer than 6 lines clears any remaining lines previously set.",
+      "fields": {
+        "lines": {
+          "name": "Lines",
+          "description": "Up to 6 lines of overlay text, in order from top to bottom."
+        }
+      }
+    }
+  }
+}

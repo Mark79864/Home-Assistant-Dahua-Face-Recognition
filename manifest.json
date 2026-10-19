@@ -1,0 +1,11 @@
+{
+  "domain": "dahua_face",
+  "name": "Dahua Face Recognition",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://github.com/yourusername/dahua_face",
+  "issue_tracker": "https://github.com/yourusername/dahua_face/issues",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "0.1.0"
+}

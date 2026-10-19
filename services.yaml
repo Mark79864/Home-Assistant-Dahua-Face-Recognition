@@ -1,0 +1,58 @@
+play_audio_file:
+  name: Play Audio File
+  description: >-
+    Play an audio file already stored on a Dahua device through its
+    speaker. IMPORTANT: the underlying Dahua API for this action has no
+    per-channel targeting at all — the device you select just picks
+    which NVR/camera connection the request is sent to. On an NVR, it
+    plays through whatever the device itself resolves it to, not
+    necessarily one specific camera's speaker; this works most
+    predictably when pointed at a standalone camera. The file must
+    already exist on the device (this does not upload one).
+  target:
+    device:
+      integration: dahua_face
+  fields:
+    path:
+      name: Path
+      description: Directory on the device containing the audio file.
+      example: "/Audio_Path"
+      default: "/Audio_Path"
+      selector:
+        text:
+    file_name:
+      name: File name
+      description: Name of the audio file to play (must already exist on the device).
+      example: "alarm.wav"
+      required: true
+      selector:
+        text:
+    play_times:
+      name: Play times
+      description: Number of times to play the file.
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box
+
+set_custom_overlay:
+  name: Set Custom Overlay
+  description: >-
+    Set up to 6 stacked lines of custom on-screen-display (OSD) text on
+    a specific camera. Each line is written to its own overlay text box
+    with an automatically computed vertical position; fewer than 6
+    lines given clears any remaining lines that were previously set.
+    Select a specific camera device, not the NVR itself.
+  target:
+    device:
+      integration: dahua_face
+  fields:
+    lines:
+      name: Lines
+      description: Up to 6 lines of overlay text, in order from top to bottom.
+      example: '["Front Door", "Recording"]'
+      required: true
+      selector:
+        object:
